@@ -2386,7 +2386,8 @@ public class Betting {
 				}
 			
 	    	}else if(model==4){
-	    		for(int j=8;j<=20;j++){
+	    		for(int j=0;j<=27;j++){
+	    			if(j!=10 && j!=17 && j!=18 && j!=19)
 	    			rs.add(j);
 				}
 	    	}
