@@ -93,7 +93,7 @@ public class GameData {
 				Cana28Map.put("result",map.get("prizeCode").toString().split("\\.")[0]);	
 				WinInfo();
 				
-				List<Integer> l1=SysResult(1);
+				/*List<Integer> l1=SysResult(1);
 				List<Integer> l2=SysResult(2);	
 				List<Integer> l3=SysResult(3);	
 				List<Integer> ResultList1=new ArrayList<>();				
@@ -105,7 +105,7 @@ public class GameData {
 				Cana28Map.put("touMin",a1);
 				Cana28Map.put("touMax",a2);	
 				log.info("min:"+a1);
-				log.info("max"+a2);
+				log.info("max"+a2);*/
 			}
 
 			

@@ -95,20 +95,19 @@ public class GameData {
 				WinInfo();
 				/*FastTenMap.put("score", map.get("U_COINS"));*/
 				
-				List<Integer> l1=SysResult(1);
+				/*List<Integer> l1=SysResult(1);
 				List<Integer> l2=SysResult(2);	
 				List<Integer> l3=SysResult(3);	
 				List<Integer> ResultList1=new ArrayList<>();				
 				ResultList1.addAll(l1);
 		        ResultList1.addAll(l2);
 		        ResultList1.addAll(l3);
-		        //log.info("前60期结果："+touList(FunUtil.frequencyOfListElements(ResultList1)));
 		        List<Integer> a1=touListMix(FunUtil.frequencyOfListElements(ResultList1));
 		        List<Integer> a2=touListMax(FunUtil.frequencyOfListElements(ResultList1));
 				FastTenMap.put("touMin",a1);
 				FastTenMap.put("touMax",a2);
 				log.info("min:"+a1);
-				log.info("max"+a2);
+				log.info("max"+a2);*/
 				
 				//log.info("map->"+FastTenMap);
 				

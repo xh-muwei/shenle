@@ -2256,7 +2256,7 @@ public class Betting {
 	    	for(int i=1;i<=10;i++){
 	    		int a=Integer.parseInt(x[0]);
 	    		int b=Integer.parseInt(x[1]);
-	    		if(i%10!=a && i%10!=b){
+	    		if(i%10==a && i%10==b){
 					for(int j=0;j<=27;j++){
 						if(j%10==i%10){
 							rs.add(j);
