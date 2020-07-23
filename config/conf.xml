@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<gps>
+		<ip>192.168.120.137</ip>
+		<port>60000</port>
+		<dstId>100267</dstId>
+	</gps>	
+</config>
+
