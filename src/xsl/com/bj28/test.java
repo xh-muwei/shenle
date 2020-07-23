@@ -15,37 +15,52 @@ public class test {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//ConfUtil.WriteConfig("hg10_run", "0");
-		WriteProperties write=new WriteProperties();
-		try {
-			write.save("hg10_run", "0");
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.err.println("修改");
+		tt();
 	
 
 	}
 	public static void tt(){
 		List<Integer> list1=new ArrayList<Integer>();
+		List<Integer> list2=new ArrayList<Integer>();
+		List<String> list3=new ArrayList<String>();
     	for(int i=1;i<=10;i++){
 			list1.add(i);
-		}	 
-    	Collections.shuffle(list1); 
-    	Collections.shuffle(list1); 
-		
-		List<Integer> rs=new ArrayList<Integer>();
-		for(int i=0;i<8;i++){
-			int a=list1.get(i)%10;
-			for(int j=0;j<=27;j++){
-				if(j%10==a){
-					rs.add(j);
-				}
-			}
-			
-		}	
-		System.out.println(list1);
+			list2.add(i);
+		}
+    	
+    	for(int i=0;i<10;i++){
+    		for(int j=0;j<10;j++){
+    			if(i!=j){
+    				String a=i+":"+j;
+    				String b=j+":"+i;
+    				if(!notHave(a, list3) && !notHave(b,list3)){
+    					list3.add(a);
+    				}
+    				
+    			}
+    		}
+    	}
+    	
+    	System.out.println(list3.size());
+    	System.out.println(list3);
+    	
+    	
+    	
+    	
+    	
+    	
 
+	}
+	public static boolean notHave(String a,List<String> list){
+		if(list==null || list.size()==0){
+			return false;
+		}
+		for(String x:list){
+			if(a.equals(x)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 }

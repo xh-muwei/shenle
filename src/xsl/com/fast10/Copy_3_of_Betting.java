@@ -35,8 +35,8 @@ import xsl.com.tool.Send163MailUtil;
 
 import com.google.gson.JsonSyntaxException;
 
-public class Betting {
-	protected final static Log log = LogFactory.getLog(Betting.class);
+public class Copy_3_of_Betting {
+	protected final static Log log = LogFactory.getLog(Copy_3_of_Betting.class);
 	private static List<Map<String,Object>> mail=new ArrayList<Map<String,Object>>();
 	private static int bet_num=0;
 	private static int run_num=0;
@@ -120,22 +120,17 @@ public class Betting {
 	private static List<Integer> list38=new ArrayList<Integer>();
 	private static List<Integer> list39=new ArrayList<Integer>();
 	private static List<Integer> list40=new ArrayList<Integer>();
-	
-	private static List<String> touList=new ArrayList<String>();
-	
-	
-	
 	public static Map<String, Object> mode1(){
 			Map<String, Object> map=new HashMap<String, Object>();
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(1);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			if(GameData.getFastTenMap().get("bettingNum1")==null){
 				GameData.getFastTenMap().put("index1", 1);
-				list1=ListValue(1);
+				list1=ListValue();
 			}else{
 				if(!single_win("bettingNum1")){
 					if(betting_index1==1){
@@ -144,7 +139,7 @@ public class Betting {
 						betting_index1=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index1").toString())>=bet_max){
-						list1=ListValue(1);
+						list1=ListValue();
 						GameData.getFastTenMap().put("index1", 1);
 						GameData.getFastTenMap().
 						put("m1", GameData.getFastTenMap().get("m1")==null?1:
@@ -156,7 +151,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index1", 1);
-					list1=ListValue(1);
+					list1=ListValue();
 				
 				}
 			}
@@ -165,7 +160,7 @@ public class Betting {
 			if(mode==0){
 				list=list1;
 			}else{
-				list1=otherList(list1,mode,1);
+				list1=otherList(list1,mode);
 				list=list1;
 				
 			}
@@ -183,13 +178,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(2);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum2")==null){
 				GameData.getFastTenMap().put("index2", 1);
-				list2=ListValue(2);
+				list2=ListValue();
 			}else{
 				if(!single_win("bettingNum2")){
 					if(betting_index2==1){
@@ -198,7 +193,7 @@ public class Betting {
 						betting_index2=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index2").toString())>=bet_max){
-						list2=ListValue(2);
+						list2=ListValue();
 						GameData.getFastTenMap().put("index2", 1);
 						GameData.getFastTenMap().
 						put("m2", GameData.getFastTenMap().get("m2")==null?1:
@@ -210,7 +205,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index2", 1);
-					list2=ListValue(2);
+					list2=ListValue();
 				
 				}
 			}
@@ -219,7 +214,7 @@ public class Betting {
 			if(mode==0){
 				list=list2;
 			}else{
-				list2=otherList(list2,mode,2);
+				list2=otherList(list2,mode);
 				list=list2;
 			}
 			for(int j=0;j<list.size();j++){
@@ -236,13 +231,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(3);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 
 			if(GameData.getFastTenMap().get("bettingNum3")==null){
 				GameData.getFastTenMap().put("index3", 1);
-				list3=ListValue(3);
+				list3=ListValue();
 			}else{
 				if(!single_win("bettingNum3")){
 					if(betting_index3==1){
@@ -251,7 +246,7 @@ public class Betting {
 						betting_index3=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index3").toString())>=bet_max){
-						list3=ListValue(3);
+						list3=ListValue();
 						GameData.getFastTenMap().put("index3", 1);
 						GameData.getFastTenMap().
 						put("m3", GameData.getFastTenMap().get("m3")==null?1:
@@ -263,7 +258,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index3", 1);
-					list3=ListValue(3);
+					list3=ListValue();
 				
 				}
 			}
@@ -272,7 +267,7 @@ public class Betting {
 			if(mode==0){
 				list=list3;
 			}else{
-				list3=otherList(list3,mode,3);
+				list3=otherList(list3,mode);
 				list=list3;
 			}
 			for(int j=0;j<list.size();j++){
@@ -289,13 +284,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(4);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum4")==null){
 				GameData.getFastTenMap().put("index4", 1);
-				list4=ListValue(4);
+				list4=ListValue();
 			}else{
 				if(!single_win("bettingNum4")){
 					if(betting_index4==1){
@@ -304,7 +299,7 @@ public class Betting {
 						betting_index4=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index4").toString())>=bet_max){
-						list4=ListValue(4);
+						list4=ListValue();
 						GameData.getFastTenMap().put("index4", 1);
 						GameData.getFastTenMap().
 						put("m4", GameData.getFastTenMap().get("m4")==null?1:
@@ -316,7 +311,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index4", 1);
-					list4=ListValue(4);
+					list4=ListValue();
 				
 				}
 			}
@@ -325,7 +320,7 @@ public class Betting {
 			if(mode==0){
 				list=list4;
 			}else{
-				list4=otherList(list4,mode,4);
+				list4=otherList(list4,mode);
 				list=list4;
 			}
 			for(int j=0;j<list.size();j++){
@@ -342,12 +337,12 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(5);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			if(GameData.getFastTenMap().get("bettingNum5")==null){
 				GameData.getFastTenMap().put("index5", 1);
-				list5=ListValue(5);
+				list5=ListValue();
 			}else{
 				if(!single_win("bettingNum5")){
 					if(betting_index5==1){
@@ -356,7 +351,7 @@ public class Betting {
 						betting_index5=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index5").toString())>=bet_max){
-						list5=ListValue(5);
+						list5=ListValue();
 						GameData.getFastTenMap().put("index5", 1);
 						GameData.getFastTenMap().
 						put("m5", GameData.getFastTenMap().get("m5")==null?1:
@@ -368,7 +363,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index5", 1);
-					list5=ListValue(5);
+					list5=ListValue();
 				
 				}
 			}
@@ -377,7 +372,7 @@ public class Betting {
 			if(mode==0){
 				list=list5;
 			}else{
-				list5=otherList(list5,mode,5);
+				list5=otherList(list5,mode);
 				list=list5;
 			}
 			for(int j=0;j<list.size();j++){
@@ -394,12 +389,12 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(6);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			if(GameData.getFastTenMap().get("bettingNum6")==null){
 				GameData.getFastTenMap().put("index6", 1);
-				list6=ListValue(6);
+				list6=ListValue();
 			}else{
 				if(!single_win("bettingNum6")){
 					if(betting_index6==1){
@@ -408,7 +403,7 @@ public class Betting {
 						betting_index6=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index6").toString())>=bet_max){
-						list6=ListValue(6);
+						list6=ListValue();
 						GameData.getFastTenMap().put("index6", 1);
 						GameData.getFastTenMap().
 						put("m6", GameData.getFastTenMap().get("m6")==null?1:
@@ -420,7 +415,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index6", 1);
-					list6=ListValue(6);
+					list6=ListValue();
 				
 				}
 			}
@@ -429,7 +424,7 @@ public class Betting {
 			if(mode==0){
 				list=list6;
 			}else{
-				list6=otherList(list6,mode,6);
+				list6=otherList(list6,mode);
 				list=list6;
 			}
 			for(int j=0;j<list.size();j++){
@@ -446,12 +441,12 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(7);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			if(GameData.getFastTenMap().get("bettingNum7")==null){
 				GameData.getFastTenMap().put("index7", 1);
-				list7=ListValue(7);
+				list7=ListValue();
 			}else{
 				if(!single_win("bettingNum7")){
 					if(betting_index7==1){
@@ -460,7 +455,7 @@ public class Betting {
 						betting_index7=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index7").toString())>=bet_max){
-						list7=ListValue(7);
+						list7=ListValue();
 						GameData.getFastTenMap().put("index7", 1);
 						GameData.getFastTenMap().
 						put("m7", GameData.getFastTenMap().get("m7")==null?1:
@@ -472,7 +467,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index7", 1);
-					list7=ListValue(7);
+					list7=ListValue();
 				
 				}
 			}
@@ -481,7 +476,7 @@ public class Betting {
 			if(mode==0){
 				list=list7;
 			}else{
-				list7=otherList(list7,mode,7);
+				list7=otherList(list7,mode);
 				list=list7;
 			}
 			for(int j=0;j<list.size();j++){
@@ -498,13 +493,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(8);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 	
 			if(GameData.getFastTenMap().get("bettingNum8")==null){
 				GameData.getFastTenMap().put("index8", 1);
-				list8=ListValue(8);
+				list8=ListValue();
 			}else{
 				if(!single_win("bettingNum8")){
 					if(betting_index8==1){
@@ -513,7 +508,7 @@ public class Betting {
 						betting_index8=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index8").toString())>=bet_max){
-						list8=ListValue(8);
+						list8=ListValue();
 						GameData.getFastTenMap().put("index8", 1);
 						GameData.getFastTenMap().
 						put("m8", GameData.getFastTenMap().get("m8")==null?1:
@@ -525,7 +520,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index8", 1);
-					list8=ListValue(8);
+					list8=ListValue();
 				
 				}
 			}
@@ -534,7 +529,7 @@ public class Betting {
 			if(mode==0){
 				list=list8;
 			}else{
-				list8=otherList(list8,mode,8);
+				list8=otherList(list8,mode);
 				list=list8;
 			}
 			for(int j=0;j<list.size();j++){
@@ -551,13 +546,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(9);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum9")==null){
 				GameData.getFastTenMap().put("index9", 1);
-				list9=ListValue(9);
+				list9=ListValue();
 			}else{
 				if(!single_win("bettingNum9")){
 					if(betting_index9==1){
@@ -566,7 +561,7 @@ public class Betting {
 						betting_index9=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index9").toString())>=bet_max){
-						list9=ListValue(9);
+						list9=ListValue();
 						GameData.getFastTenMap().put("index9", 1);
 						GameData.getFastTenMap().
 						put("m9", GameData.getFastTenMap().get("m9")==null?1:
@@ -578,7 +573,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index9", 1);
-					list9=ListValue(9);
+					list9=ListValue();
 				
 				}
 			}
@@ -587,7 +582,7 @@ public class Betting {
 			if(mode==0){
 				list=list9;
 			}else{
-				list9=otherList(list9,mode,9);
+				list9=otherList(list9,mode);
 				list=list9;
 			}
 			for(int j=0;j<list.size();j++){
@@ -604,13 +599,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(10);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum10")==null){
 				GameData.getFastTenMap().put("index10", 1);
-				list10=ListValue(10);
+				list10=ListValue();
 			}else{
 				if(!single_win("bettingNum10")){
 					if(betting_index10==1){
@@ -619,7 +614,7 @@ public class Betting {
 						betting_index10=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index10").toString())>=bet_max){
-						list10=ListValue(10);
+						list10=ListValue();
 						GameData.getFastTenMap().put("index10", 1);
 						GameData.getFastTenMap().
 						put("m10", GameData.getFastTenMap().get("m10")==null?1:
@@ -631,7 +626,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index10", 1);
-					list10=ListValue(10);
+					list10=ListValue();
 				
 				}
 			}
@@ -640,7 +635,7 @@ public class Betting {
 			if(mode==0){
 				list=list10;
 			}else{
-				list10=otherList(list10,mode,10);
+				list10=otherList(list10,mode);
 				list=list10;
 			}
 			for(int j=0;j<list.size();j++){
@@ -657,13 +652,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(11);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum11")==null){
 				GameData.getFastTenMap().put("index11", 1);
-				list11=ListValue(11);
+				list11=ListValue();
 			}else{
 				if(!single_win("bettingNum11")){
 					if(betting_index11==1){
@@ -672,7 +667,7 @@ public class Betting {
 						betting_index11=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index11").toString())>=bet_max){
-						list11=ListValue(11);
+						list11=ListValue();
 						GameData.getFastTenMap().put("index11", 1);
 						GameData.getFastTenMap().
 						put("m11", GameData.getFastTenMap().get("m11")==null?1:
@@ -684,7 +679,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index11", 1);
-					list11=ListValue(11);
+					list11=ListValue();
 				
 				}
 			}
@@ -693,7 +688,7 @@ public class Betting {
 			if(mode==0){
 				list=list11;
 			}else{
-				list11=otherList(list11,mode,11);
+				list11=otherList(list11,mode);
 				list=list11;
 			}
 			for(int j=0;j<list.size();j++){
@@ -710,13 +705,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(12);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum12")==null){
 				GameData.getFastTenMap().put("index12", 1);
-				list12=ListValue(12);
+				list12=ListValue();
 			}else{
 				if(!single_win("bettingNum12")){
 					if(betting_index12==1){
@@ -725,7 +720,7 @@ public class Betting {
 						betting_index12=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index12").toString())>=bet_max){
-						list12=ListValue(12);
+						list12=ListValue();
 						GameData.getFastTenMap().put("index12", 1);
 						GameData.getFastTenMap().
 						put("m12", GameData.getFastTenMap().get("m12")==null?1:
@@ -737,7 +732,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index12", 1);
-					list12=ListValue(12);
+					list12=ListValue();
 				
 				}
 			}
@@ -746,7 +741,7 @@ public class Betting {
 			if(mode==0){
 				list=list12;
 			}else{
-				list12=otherList(list12,mode,12);
+				list12=otherList(list12,mode);
 				list=list12;
 			}
 			for(int j=0;j<list.size();j++){
@@ -763,13 +758,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(13);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum13")==null){
 				GameData.getFastTenMap().put("index13", 1);
-				list13=ListValue(13);
+				list13=ListValue();
 			}else{
 				if(!single_win("bettingNum13")){
 					if(betting_index13==1){
@@ -778,7 +773,7 @@ public class Betting {
 						betting_index13=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index13").toString())>=bet_max){
-						list13=ListValue(13);
+						list13=ListValue();
 						GameData.getFastTenMap().put("index13", 1);
 						GameData.getFastTenMap().
 						put("m13", GameData.getFastTenMap().get("m13")==null?1:
@@ -790,7 +785,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index13", 1);
-					list13=ListValue(13);
+					list13=ListValue();
 				
 				}
 			}
@@ -799,7 +794,7 @@ public class Betting {
 			if(mode==0){
 				list=list13;
 			}else{
-				list13=otherList(list13,mode,13);
+				list13=otherList(list13,mode);
 				list=list13;
 			}
 			for(int j=0;j<list.size();j++){
@@ -816,13 +811,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(14);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum14")==null){
 				GameData.getFastTenMap().put("index14", 1);
-				list14=ListValue(14);
+				list14=ListValue();
 			}else{
 				if(!single_win("bettingNum14")){
 					if(betting_index14==1){
@@ -831,7 +826,7 @@ public class Betting {
 						betting_index14=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index14").toString())>=bet_max){
-						list14=ListValue(14);
+						list14=ListValue();
 						GameData.getFastTenMap().put("index14", 1);
 						GameData.getFastTenMap().
 						put("m14", GameData.getFastTenMap().get("m14")==null?1:
@@ -843,7 +838,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index14", 1);
-					list14=ListValue(14);
+					list14=ListValue();
 				
 				}
 			}
@@ -852,7 +847,7 @@ public class Betting {
 			if(mode==0){
 				list=list14;
 			}else{
-				list14=otherList(list14,mode,14);
+				list14=otherList(list14,mode);
 				list=list14;
 			}
 			for(int j=0;j<list.size();j++){
@@ -869,13 +864,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(15);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum15")==null){
 				GameData.getFastTenMap().put("index15", 1);
-				list15=ListValue(15);
+				list15=ListValue();
 			}else{
 				if(!single_win("bettingNum15")){
 					if(betting_index15==1){
@@ -884,7 +879,7 @@ public class Betting {
 						betting_index15=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index15").toString())>=bet_max){
-						list15=ListValue(15);
+						list15=ListValue();
 						GameData.getFastTenMap().put("index15", 1);
 						GameData.getFastTenMap().
 						put("m15", GameData.getFastTenMap().get("m15")==null?1:
@@ -896,7 +891,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index15", 1);
-					list15=ListValue(15);
+					list15=ListValue();
 				
 				}
 			}
@@ -905,7 +900,7 @@ public class Betting {
 			if(mode==0){
 				list=list15;
 			}else{
-				list15=otherList(list15,mode,15);
+				list15=otherList(list15,mode);
 				list=list15;
 			}
 			for(int j=0;j<list.size();j++){
@@ -922,13 +917,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(16);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum16")==null){
 				GameData.getFastTenMap().put("index16", 1);
-				list16=ListValue(16);
+				list16=ListValue();
 			}else{
 				if(!single_win("bettingNum16")){
 					if(betting_index16==1){
@@ -937,7 +932,7 @@ public class Betting {
 						betting_index16=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index16").toString())>=bet_max){
-						list16=ListValue(16);
+						list16=ListValue();
 						GameData.getFastTenMap().put("index16", 1);
 						GameData.getFastTenMap().
 						put("m16", GameData.getFastTenMap().get("m16")==null?1:
@@ -949,7 +944,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index16", 1);
-					list16=ListValue(16);
+					list16=ListValue();
 				
 				}
 			}
@@ -958,7 +953,7 @@ public class Betting {
 			if(mode==0){
 				list=list16;
 			}else{
-				list16=otherList(list16,mode,16);
+				list16=otherList(list16,mode);
 				list=list16;
 			}
 			for(int j=0;j<list.size();j++){
@@ -975,13 +970,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(17);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum17")==null){
 				GameData.getFastTenMap().put("index17", 1);
-				list17=ListValue(17);
+				list17=ListValue();
 			}else{
 				if(!single_win("bettingNum17")){
 					if(betting_index17==1){
@@ -990,7 +985,7 @@ public class Betting {
 						betting_index17=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index17").toString())>=bet_max){
-						list17=ListValue(17);
+						list17=ListValue();
 						GameData.getFastTenMap().put("index17", 1);
 						GameData.getFastTenMap().
 						put("m17", GameData.getFastTenMap().get("m17")==null?1:
@@ -1002,7 +997,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index17", 1);
-					list17=ListValue(17);
+					list17=ListValue();
 				
 				}
 			}
@@ -1011,7 +1006,7 @@ public class Betting {
 			if(mode==0){
 				list=list17;
 			}else{
-				list17=otherList(list17,mode,17);
+				list17=otherList(list17,mode);
 				list=list17;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1028,13 +1023,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(18);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum18")==null){
 				GameData.getFastTenMap().put("index18", 1);
-				list18=ListValue(18);
+				list18=ListValue();
 			}else{
 				if(!single_win("bettingNum18")){
 					if(betting_index18==1){
@@ -1043,7 +1038,7 @@ public class Betting {
 						betting_index18=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index18").toString())>=bet_max){
-						list18=ListValue(18);
+						list18=ListValue();
 						GameData.getFastTenMap().put("index18", 1);
 						GameData.getFastTenMap().
 						put("m18", GameData.getFastTenMap().get("m18")==null?1:
@@ -1055,7 +1050,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index18", 1);
-					list18=ListValue(18);
+					list18=ListValue();
 				
 				}
 			}
@@ -1064,7 +1059,7 @@ public class Betting {
 			if(mode==0){
 				list=list18;
 			}else{
-				list18=otherList(list18,mode,18);
+				list18=otherList(list18,mode);
 				list=list18;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1081,13 +1076,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(19);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum19")==null){
 				GameData.getFastTenMap().put("index19", 1);
-				list19=ListValue(19);
+				list19=ListValue();
 			}else{
 				if(!single_win("bettingNum19")){
 					if(betting_index19==1){
@@ -1096,7 +1091,7 @@ public class Betting {
 						betting_index19=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index19").toString())>=bet_max){
-						list19=ListValue(19);
+						list19=ListValue();
 						GameData.getFastTenMap().put("index19", 1);
 						GameData.getFastTenMap().
 						put("m19", GameData.getFastTenMap().get("m19")==null?1:
@@ -1108,7 +1103,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index19", 1);
-					list19=ListValue(19);
+					list19=ListValue();
 				
 				}
 			}
@@ -1117,7 +1112,7 @@ public class Betting {
 			if(mode==0){
 				list=list19;
 			}else{
-				list19=otherList(list19,mode,19);
+				list19=otherList(list19,mode);
 				list=list19;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1134,13 +1129,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(20);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum20")==null){
 				GameData.getFastTenMap().put("index20", 1);
-				list20=ListValue(20);
+				list20=ListValue();
 			}else{
 				if(!single_win("bettingNum20")){
 					if(betting_index20==1){
@@ -1149,7 +1144,7 @@ public class Betting {
 						betting_index20=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index20").toString())>=bet_max){
-						list20=ListValue(20);
+						list20=ListValue();
 						GameData.getFastTenMap().put("index20", 1);
 						GameData.getFastTenMap().
 						put("m20", GameData.getFastTenMap().get("m20")==null?1:
@@ -1161,7 +1156,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index20", 1);
-					list20=ListValue(20);
+					list20=ListValue();
 				
 				}
 			}
@@ -1170,7 +1165,7 @@ public class Betting {
 			if(mode==0){
 				list=list20;
 			}else{
-				list20=otherList(list20,mode,20);
+				list20=otherList(list20,mode);
 				list=list20;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1187,13 +1182,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(21);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum21")==null){
 				GameData.getFastTenMap().put("index21", 1);
-				list21=ListValue(21);
+				list21=ListValue();
 			}else{
 				if(!single_win("bettingNum21")){
 					if(betting_index21==1){
@@ -1202,7 +1197,7 @@ public class Betting {
 						betting_index21=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index21").toString())>=bet_max){
-						list21=ListValue(21);
+						list21=ListValue();
 						GameData.getFastTenMap().put("index21", 1);
 						GameData.getFastTenMap().
 						put("m21", GameData.getFastTenMap().get("m21")==null?1:
@@ -1214,7 +1209,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index21", 1);
-					list21=ListValue(21);
+					list21=ListValue();
 				
 				}
 			}
@@ -1223,7 +1218,7 @@ public class Betting {
 			if(mode==0){
 				list=list21;
 			}else{
-				list21=otherList(list21,mode,21);
+				list21=otherList(list21,mode);
 				list=list21;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1240,13 +1235,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(22);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum22")==null){
 				GameData.getFastTenMap().put("index22", 1);
-				list22=ListValue(22);
+				list22=ListValue();
 			}else{
 				if(!single_win("bettingNum22")){
 					if(betting_index22==1){
@@ -1255,7 +1250,7 @@ public class Betting {
 						betting_index22=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index22").toString())>=bet_max){
-						list22=ListValue(22);
+						list22=ListValue();
 						GameData.getFastTenMap().put("index22", 1);
 						GameData.getFastTenMap().
 						put("m22", GameData.getFastTenMap().get("m22")==null?1:
@@ -1267,7 +1262,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index22", 1);
-					list22=ListValue(22);
+					list22=ListValue();
 				
 				}
 			}
@@ -1276,7 +1271,7 @@ public class Betting {
 			if(mode==0){
 				list=list22;
 			}else{
-				list22=otherList(list22,mode,22);
+				list22=otherList(list22,mode);
 				list=list22;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1293,13 +1288,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(23);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum23")==null){
 				GameData.getFastTenMap().put("index23", 1);
-				list23=ListValue(23);
+				list23=ListValue();
 			}else{
 				if(!single_win("bettingNum23")){
 					if(betting_index23==1){
@@ -1308,7 +1303,7 @@ public class Betting {
 						betting_index23=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index23").toString())>=bet_max){
-						list23=ListValue(23);
+						list23=ListValue();
 						GameData.getFastTenMap().put("index23", 1);
 						GameData.getFastTenMap().
 						put("m23", GameData.getFastTenMap().get("m23")==null?1:
@@ -1320,7 +1315,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index23", 1);
-					list23=ListValue(23);
+					list23=ListValue();
 				
 				}
 			}
@@ -1329,7 +1324,7 @@ public class Betting {
 			if(mode==0){
 				list=list23;
 			}else{
-				list23=otherList(list23,mode,23);
+				list23=otherList(list23,mode);
 				list=list23;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1346,13 +1341,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(24);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum24")==null){
 				GameData.getFastTenMap().put("index24", 1);
-				list24=ListValue(24);
+				list24=ListValue();
 			}else{
 				if(!single_win("bettingNum24")){
 					if(betting_index24==1){
@@ -1361,7 +1356,7 @@ public class Betting {
 						betting_index24=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index24").toString())>=bet_max){
-						list24=ListValue(24);
+						list24=ListValue();
 						GameData.getFastTenMap().put("index24", 1);
 						GameData.getFastTenMap().
 						put("m24", GameData.getFastTenMap().get("m24")==null?1:
@@ -1373,7 +1368,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index24", 1);
-					list24=ListValue(24);
+					list24=ListValue();
 				
 				}
 			}
@@ -1382,7 +1377,7 @@ public class Betting {
 			if(mode==0){
 				list=list24;
 			}else{
-				list24=otherList(list24,mode,24);
+				list24=otherList(list24,mode);
 				list=list24;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1399,13 +1394,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(25);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum25")==null){
 				GameData.getFastTenMap().put("index25", 1);
-				list25=ListValue(25);
+				list25=ListValue();
 			}else{
 				if(!single_win("bettingNum25")){
 					if(betting_index25==1){
@@ -1414,7 +1409,7 @@ public class Betting {
 						betting_index25=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index25").toString())>=bet_max){
-						list25=ListValue(25);
+						list25=ListValue();
 						GameData.getFastTenMap().put("index25", 1);
 						GameData.getFastTenMap().
 						put("m25", GameData.getFastTenMap().get("m25")==null?1:
@@ -1426,7 +1421,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index25", 1);
-					list25=ListValue(25);
+					list25=ListValue();
 				
 				}
 			}
@@ -1435,7 +1430,7 @@ public class Betting {
 			if(mode==0){
 				list=list25;
 			}else{
-				list25=otherList(list25,mode,25);
+				list25=otherList(list25,mode);
 				list=list25;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1452,13 +1447,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(26);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum26")==null){
 				GameData.getFastTenMap().put("index26", 1);
-				list26=ListValue(26);
+				list26=ListValue();
 			}else{
 				if(!single_win("bettingNum26")){
 					if(betting_index26==1){
@@ -1467,7 +1462,7 @@ public class Betting {
 						betting_index26=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index26").toString())>=bet_max){
-						list26=ListValue(26);
+						list26=ListValue();
 						GameData.getFastTenMap().put("index26", 1);
 						GameData.getFastTenMap().
 						put("m26", GameData.getFastTenMap().get("m26")==null?1:
@@ -1479,7 +1474,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index26", 1);
-					list26=ListValue(26);
+					list26=ListValue();
 				
 				}
 			}
@@ -1488,7 +1483,7 @@ public class Betting {
 			if(mode==0){
 				list=list26;
 			}else{
-				list26=otherList(list26,mode,26);
+				list26=otherList(list26,mode);
 				list=list26;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1505,13 +1500,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(27);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum27")==null){
 				GameData.getFastTenMap().put("index27", 1);
-				list27=ListValue(27);
+				list27=ListValue();
 			}else{
 				if(!single_win("bettingNum27")){
 					if(betting_index27==1){
@@ -1520,7 +1515,7 @@ public class Betting {
 						betting_index27=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index27").toString())>=bet_max){
-						list27=ListValue(27);
+						list27=ListValue();
 						GameData.getFastTenMap().put("index27", 1);
 						GameData.getFastTenMap().
 						put("m27", GameData.getFastTenMap().get("m27")==null?1:
@@ -1532,7 +1527,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index27", 1);
-					list27=ListValue(27);
+					list27=ListValue();
 				
 				}
 			}
@@ -1541,7 +1536,7 @@ public class Betting {
 			if(mode==0){
 				list=list27;
 			}else{
-				list27=otherList(list27,mode,27);
+				list27=otherList(list27,mode);
 				list=list27;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1558,13 +1553,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(28);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum28")==null){
 				GameData.getFastTenMap().put("index28", 1);
-				list28=ListValue(28);
+				list28=ListValue();
 			}else{
 				if(!single_win("bettingNum28")){
 					if(betting_index28==1){
@@ -1573,7 +1568,7 @@ public class Betting {
 						betting_index28=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index28").toString())>=bet_max){
-						list28=ListValue(28);
+						list28=ListValue();
 						GameData.getFastTenMap().put("index28", 1);
 						GameData.getFastTenMap().
 						put("m28", GameData.getFastTenMap().get("m28")==null?1:
@@ -1585,7 +1580,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index28", 1);
-					list28=ListValue(28);
+					list28=ListValue();
 				
 				}
 			}
@@ -1594,7 +1589,7 @@ public class Betting {
 			if(mode==0){
 				list=list28;
 			}else{
-				list28=otherList(list28,mode,28);
+				list28=otherList(list28,mode);
 				list=list28;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1611,13 +1606,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(29);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			if(GameData.getFastTenMap().get("bettingNum29")==null){
 				GameData.getFastTenMap().put("index29", 1);
-				list29=ListValue(29);
+				list29=ListValue();
 			}else{
 				if(!single_win("bettingNum29")){
 					if(betting_index29==1){
@@ -1626,7 +1621,7 @@ public class Betting {
 						betting_index29=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index29").toString())>=bet_max){
-						list29=ListValue(29);
+						list29=ListValue();
 						GameData.getFastTenMap().put("index29", 1);
 						GameData.getFastTenMap().
 						put("m29", GameData.getFastTenMap().get("m29")==null?1:
@@ -1638,7 +1633,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index29", 1);
-					list29=ListValue(29);
+					list29=ListValue();
 				
 				}
 			}
@@ -1647,7 +1642,7 @@ public class Betting {
 			if(mode==0){
 				list=list29;
 			}else{
-				list29=otherList(list29,mode,29);
+				list29=otherList(list29,mode);
 				list=list29;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1664,13 +1659,13 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(30);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			if(GameData.getFastTenMap().get("bettingNum30")==null){
 				GameData.getFastTenMap().put("index30", 1);
-				list30=ListValue(30);
+				list30=ListValue();
 			}else{
 				if(!single_win("bettingNum30")){
 					if(betting_index30==1){
@@ -1679,7 +1674,7 @@ public class Betting {
 						betting_index30=1;
 					}
 					if(Integer.parseInt(GameData.getFastTenMap().get("index30").toString())>=bet_max){
-						list30=ListValue(30);
+						list30=ListValue();
 						GameData.getFastTenMap().put("index30", 1);
 						GameData.getFastTenMap().
 						put("m30", GameData.getFastTenMap().get("m30")==null?1:
@@ -1691,7 +1686,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index30", 1);
-					list30=ListValue(30);
+					list30=ListValue();
 				
 				}
 			}
@@ -1700,7 +1695,7 @@ public class Betting {
 			if(mode==0){
 				list=list30;
 			}else{
-				list30=otherList(list30,mode,30);
+				list30=otherList(list30,mode);
 				list=list30;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1717,17 +1712,17 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(31);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			betting_index31++;
 			if(GameData.getFastTenMap().get("bettingNum31")==null){
 				GameData.getFastTenMap().put("index31", 1);
-				list31=ListValue(31);
+				list31=ListValue();
 			}else{
 				if(!single_win("bettingNum31")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index31").toString())>=bet_max){
-						list31=ListValue(31);
+						list31=ListValue();
 						GameData.getFastTenMap().put("index31", 1);
 						GameData.getFastTenMap().
 						put("m31", GameData.getFastTenMap().get("m31")==null?1:
@@ -1739,7 +1734,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index31", 1);
-					list31=ListValue(31);
+					list31=ListValue();
 				
 				}
 			}
@@ -1748,7 +1743,7 @@ public class Betting {
 			if(mode==0){
 				list=list31;
 			}else{
-				list31=otherList(list31,mode,31);
+				list31=otherList(list31,mode);
 				list=list31;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1766,18 +1761,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(32);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index32++;
 			if(GameData.getFastTenMap().get("bettingNum32")==null){
 				GameData.getFastTenMap().put("index32", 1);
-				list32=ListValue(32);
+				list32=ListValue();
 			}else{
 				if(!single_win("bettingNum32")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index32").toString())>=bet_max){
-						list32=ListValue(32);
+						list32=ListValue();
 						GameData.getFastTenMap().put("index32", 1);
 						GameData.getFastTenMap().
 						put("m32", GameData.getFastTenMap().get("m32")==null?1:
@@ -1789,7 +1784,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index32", 1);
-					list32=ListValue(32);
+					list32=ListValue();
 				
 				}
 			}
@@ -1798,7 +1793,7 @@ public class Betting {
 			if(mode==0){
 				list=list32;
 			}else{
-				list32=otherList(list32,mode,32);
+				list32=otherList(list32,mode);
 				list=list32;
 			}
 		
@@ -1816,18 +1811,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(33);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			betting_index33++;
 			if(GameData.getFastTenMap().get("bettingNum33")==null){
 				GameData.getFastTenMap().put("index33", 1);
-				list33=ListValue(33);
+				list33=ListValue();
 			}else{
 				if(!single_win("bettingNum33")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index33").toString())>=bet_max){
-						list33=ListValue(33);
+						list33=ListValue();
 						GameData.getFastTenMap().put("index33", 1);
 						GameData.getFastTenMap().
 						put("m33", GameData.getFastTenMap().get("m33")==null?1:
@@ -1839,7 +1834,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index33", 1);
-					list33=ListValue(33);
+					list33=ListValue();
 				
 				}
 			}
@@ -1848,7 +1843,7 @@ public class Betting {
 			if(mode==0){
 				list=list33;
 			}else{
-				list33=otherList(list33,mode,33);
+				list33=otherList(list33,mode);
 				list=list33;
 			}
 			for(int j=0;j<list.size();j++){
@@ -1865,18 +1860,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(34);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			betting_index34++;
 			if(GameData.getFastTenMap().get("bettingNum34")==null){
 				GameData.getFastTenMap().put("index34", 1);
-				list34=ListValue(34);
+				list34=ListValue();
 			}else{
 				if(!single_win("bettingNum34")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index34").toString())>=bet_max){
-						list34=ListValue(34);
+						list34=ListValue();
 						GameData.getFastTenMap().put("index34", 1);
 						GameData.getFastTenMap().
 						put("m34", GameData.getFastTenMap().get("m34")==null?1:
@@ -1888,7 +1883,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index34", 1);
-					list34=ListValue(34);
+					list34=ListValue();
 				
 				}
 			}
@@ -1897,7 +1892,7 @@ public class Betting {
 			if(mode==0){
 				list=list34;
 			}else{
-				list34=otherList(list34,mode,34);
+				list34=otherList(list34,mode);
 				list=list34;
 			}
 		
@@ -1915,18 +1910,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(35);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index35++;
 			if(GameData.getFastTenMap().get("bettingNum35")==null){
 				GameData.getFastTenMap().put("index35", 1);
-				list35=ListValue(35);
+				list35=ListValue();
 			}else{
 				if(!single_win("bettingNum35")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index35").toString())>=bet_max){
-						list35=ListValue(35);
+						list35=ListValue();
 						GameData.getFastTenMap().put("index35", 1);
 						GameData.getFastTenMap().
 						put("m35", GameData.getFastTenMap().get("m35")==null?1:
@@ -1938,7 +1933,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index35", 1);
-					list35=ListValue(35);
+					list35=ListValue();
 				
 				}
 			}
@@ -1947,7 +1942,7 @@ public class Betting {
 			if(mode==0){
 				list=list35;
 			}else{
-				list35=otherList(list35,mode,35);
+				list35=otherList(list35,mode);
 				list=list35;
 			}
 		
@@ -1965,18 +1960,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(36);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index36++;
 			if(GameData.getFastTenMap().get("bettingNum36")==null){
 				GameData.getFastTenMap().put("index36", 1);
-				list36=ListValue(36);
+				list36=ListValue();
 			}else{
 				if(!single_win("bettingNum36")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index36").toString())>=bet_max){
-						list36=ListValue(36);
+						list36=ListValue();
 						GameData.getFastTenMap().put("index36", 1);
 						GameData.getFastTenMap().
 						put("m36", GameData.getFastTenMap().get("m36")==null?1:
@@ -1988,7 +1983,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index36", 1);
-					list36=ListValue(36);
+					list36=ListValue();
 				
 				}
 			}
@@ -1998,7 +1993,7 @@ public class Betting {
 			if(mode==0){
 				list=list36;
 			}else{
-				list36=otherList(list36,mode,36);
+				list36=otherList(list36,mode);
 				list=list36;
 			}
 			for(int j=0;j<list.size();j++){
@@ -2015,18 +2010,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(37);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index37++;
 			if(GameData.getFastTenMap().get("bettingNum37")==null){
 				GameData.getFastTenMap().put("index37", 1);
-				list37=ListValue(37);
+				list37=ListValue();
 			}else{
 				if(!single_win("bettingNum37")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index37").toString())>=bet_max){
-						list37=ListValue(37);
+						list37=ListValue();
 						GameData.getFastTenMap().put("index37", 1);
 						GameData.getFastTenMap().
 						put("m37", GameData.getFastTenMap().get("m37")==null?1:
@@ -2038,7 +2033,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index37", 1);
-					list37=ListValue(37);
+					list37=ListValue();
 				
 				}
 			}
@@ -2047,7 +2042,7 @@ public class Betting {
 			if(mode==0){
 				list=list37;
 			}else{
-				list37=otherList(list37,mode,37);
+				list37=otherList(list37,mode);
 				list=list37;
 			}
 		
@@ -2065,18 +2060,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(38);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 			
 			betting_index38++;
 			if(GameData.getFastTenMap().get("bettingNum38")==null){
 				GameData.getFastTenMap().put("index38", 1);
-				list38=ListValue(38);
+				list38=ListValue();
 			}else{
 				if(!single_win("bettingNum38")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index38").toString())>=bet_max){
-						list38=ListValue(38);
+						list38=ListValue();
 						GameData.getFastTenMap().put("index38", 1);
 						GameData.getFastTenMap().
 						put("m38", GameData.getFastTenMap().get("m38")==null?1:
@@ -2088,7 +2083,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index38", 1);
-					list38=ListValue(38);
+					list38=ListValue();
 				
 				}
 			}
@@ -2098,7 +2093,7 @@ public class Betting {
 			if(mode==0){
 				list=list38;
 			}else{
-				list38=otherList(list38,mode,38);
+				list38=otherList(list38,mode);
 				list=list38;
 			}
 			for(int j=0;j<list.size();j++){
@@ -2115,18 +2110,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(39);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index39++;
 			if(GameData.getFastTenMap().get("bettingNum39")==null){
 				GameData.getFastTenMap().put("index39", 1);
-				list39=ListValue(39);
+				list39=ListValue();
 			}else{
 				if(!single_win("bettingNum39")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index39").toString())>=bet_max){
-						list39=ListValue(39);
+						list39=ListValue();
 						GameData.getFastTenMap().put("index39", 1);
 						GameData.getFastTenMap().
 						put("m39", GameData.getFastTenMap().get("m39")==null?1:
@@ -2138,7 +2133,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index39", 1);
-					list39=ListValue(39);
+					list39=ListValue();
 				
 				}
 			}
@@ -2147,7 +2142,7 @@ public class Betting {
 			if(mode==0){
 				list=list39;
 			}else{
-				list39=otherList(list39,mode,39);
+				list39=otherList(list39,mode);
 				list=list39;
 			}
 		
@@ -2165,18 +2160,18 @@ public class Betting {
 			map.put("mapid", 36);
 			map.put("orderid", GameData.getFastTenMap().get("now_num"));
 			StringBuilder str=new StringBuilder();
-			List<Integer> list=ListValue(40);
+			List<Integer> list=ListValue();
 			int ss=Integer.parseInt(ConfUtil.ReadConfig("hg10_mode_one_value"));
 			int bet_max=Integer.parseInt(ConfUtil.ReadConfig("hg10_bet_one_max"));
 		
 			betting_index40++;
 			if(GameData.getFastTenMap().get("bettingNum40")==null){
 				GameData.getFastTenMap().put("index40", 1);
-				list40=ListValue(40);
+				list40=ListValue();
 			}else{
 				if(!single_win("bettingNum40")){
 					if(Integer.parseInt(GameData.getFastTenMap().get("index40").toString())>=bet_max){
-						list40=ListValue(40);
+						list40=ListValue();
 						GameData.getFastTenMap().put("index40", 1);
 						GameData.getFastTenMap().
 						put("m40", GameData.getFastTenMap().get("m40")==null?1:
@@ -2188,7 +2183,7 @@ public class Betting {
 							
 				}else{
 					GameData.getFastTenMap().put("index40", 1);
-					list40=ListValue(40);
+					list40=ListValue();
 				
 				}
 			}
@@ -2197,7 +2192,7 @@ public class Betting {
 			if(mode==0){
 				list=list40;
 			}else{
-				list40=otherList(list40,mode,40);
+				list40=otherList(list40,mode);
 				list=list40;
 			}
 		
@@ -2254,18 +2249,78 @@ public class Betting {
 	    	}
 	    	return 0;
 	    }
-	    public static List<Integer> ListValue(int index){
+	    public static List<Integer> ListValue(){
 	    	List<Integer> list1=new ArrayList<Integer>();
-	    	List<Integer> rs=new ArrayList<Integer>();
-	    	String[] x=touList.get(index).split("\\:");
-	    	for(int i=1;i<=10;i++){
-	    		int a=Integer.parseInt(x[0]);
-	    		int b=Integer.parseInt(x[1]);
-	    		if(i%10!=a && i%10!=b){
-	    			rs.add(i);
-	    		}
+	    	List<Integer> list2=new ArrayList<Integer>();
+	    	List<Integer> list3=new ArrayList<Integer>();
+	    	List<Integer> list4=new ArrayList<Integer>();
+	    	List<Integer> list5=new ArrayList<Integer>();
+	    	for(int i=1;i<=5;i++){
+				list1.add(i);
 			}
-	    	
+	    	Collections.shuffle(list1);
+			Collections.shuffle(list1);
+	    	for(int i=6;i<=10;i++){
+				list2.add(i);
+			}
+	    	Collections.shuffle(list2);
+			Collections.shuffle(list2);
+	    	for(int i=1;i<=9;i+=2){
+				list3.add(i);
+			}
+	    	Collections.shuffle(list3);
+			Collections.shuffle(list3);
+	    	for(int i=2;i<=10;i+=2){
+				list4.add(i);
+			}
+	    	Collections.shuffle(list4);
+			Collections.shuffle(list4);   	
+	    	for(int i=3;i<=7;i++){
+				list5.add(i);
+			}
+	    	Collections.shuffle(list5);
+			Collections.shuffle(list5);
+			List<Integer> rs=new ArrayList<Integer>();
+			for(int i=0;i<5;i++){
+				if(!ishas(list1.get(i),rs)){
+					rs.add(list1.get(i));
+					break;
+				}else{
+					
+				}		
+			}
+			for(int i=0;i<5;i++){
+				if(!ishas(list2.get(i),rs)){
+					rs.add(list2.get(i));
+					break;
+				}else{
+					
+				}		
+			}
+			for(int i=0;i<5;i++){
+				if(!ishas(list3.get(i),rs)){
+					rs.add(list3.get(i));
+					break;
+				}else{
+					
+				}		
+			}
+			for(int i=0;i<5;i++){
+				if(!ishas(list4.get(i),rs)){
+					rs.add(list4.get(i));
+					break;
+				}else{
+					
+				}		
+			}
+			for(int i=0;i<5;i++){
+				if(!ishas(list5.get(i),rs)){
+					rs.add(list5.get(i));
+					break;
+				}else{
+					
+				}		
+			}
 			
 			return rs;
 	    }
@@ -2282,15 +2337,62 @@ public class Betting {
 	    	return false;
 	    	
 	    }
-	    public static List<Integer> otherList(List<Integer> paramList,int mode,int index){
+	    public static List<Integer> otherList(List<Integer> paramList,int mode){
 	    	List<Integer> list1=new ArrayList<Integer>();
 	    	for(int i=1;i<=10;i++){
 				list1.add(i);
-			}   	
-	    	Collections.shuffle(list1);
+			}   	    	
 			List<Integer> rs=new ArrayList<Integer>();
 			if(mode==1){
-				rs=ListValue(index);
+				rs=ListValue();
+			}else if(mode==2){
+				list1.removeAll(paramList);
+				rs=list1;
+				
+			}else if(mode==3){
+				if(GameData.getFastTenMap().get("touMax")!=null){
+					rs=(List<Integer>) GameData.getFastTenMap().get("touMax");
+					
+				}else{
+					for(int i=1;i<=8;i++){
+						rs.add(i);
+					} 
+				}
+				
+			}
+			else if(mode==4){
+				for(int i=1;i<=8;i++){
+					rs.add(i);
+				} 
+				
+			}
+			else if(mode==5){
+				rs=valuexx();
+				
+			}else if(mode==6){
+				List<Integer> x=new ArrayList<Integer>();
+				for(int i=1;i<=3;i++){
+					x.add(i);
+				}
+				Collections.shuffle(x);
+				int a=x.get(0);
+				switch (a) {
+				case 1:
+					rs=(List<Integer>) GameData.getFastTenMap().get("touMax");
+					break;
+				case 2:
+					for(int i=1;i<=8;i++){
+						rs.add(i);
+					} 
+					break;
+				case 3:
+					rs=valuexx();
+				default:
+					break;
+				}
+				rs=valuexx();
+				
+				
 			}
 			return rs;
 	    }
@@ -2308,7 +2410,6 @@ public class Betting {
 			return rs;
 	    }
  	public static Map<String, Object> BigMode(){
- 		touList=getTouList();
 		Map<String, Object> map=new HashMap<String, Object>();
 		map.put("num", GameData.getFastTenMap().get("now_num"));
 		Map<String, Object> map1=mode1();
@@ -2551,47 +2652,7 @@ public class Betting {
 	
 			
 		}
-	public static boolean notHave(String a,List<String> list){
-		if(list==null || list.size()==0){
-			return false;
-		}
-		for(String x:list){
-			if(a.equals(x)){
-				return true;
-			}
-		}
-		return false;
-	}
-	public static List<String>  getTouList(){
-		List<Integer> list1=new ArrayList<Integer>();
-		List<Integer> list2=new ArrayList<Integer>();
-		List<String> list3=new ArrayList<String>();
-    	for(int i=1;i<=10;i++){
-			list1.add(i);
-			list2.add(i);
-		}
-    	
-    	for(int i=0;i<10;i++){
-    		for(int j=0;j<10;j++){
-    			if(i!=j){
-    				String a=i+":"+j;
-    				String b=j+":"+i;
-    				if(!notHave(a, list3) && !notHave(b,list3)){
-    					list3.add(a);
-    				}
-    				
-    			}
-    		}
-    	}
-    	
-    	Collections.shuffle(list3);
-    	Collections.shuffle(list3);
-    	Collections.shuffle(list3);
-    	log.info(list3);  
-    	return list3;
-    	
 
-	}
 	public static void Betting(Map<String, Object> paramMap) throws UnsupportedEncodingException {
 		int num=Integer.parseInt(paramMap.get("total").toString());
 		int win_max=Integer.parseInt(ConfUtil.ReadConfig("jx_win_max"));
