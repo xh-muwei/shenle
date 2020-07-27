@@ -2252,11 +2252,10 @@ public class Betting {
 
 	    public static List<Integer> ListValue(int index){
 			List<Integer> rs=new ArrayList<Integer>();
-			String[] x=touList.get(index).split("\\:");
+			String x=touList.get(index-1);
 	    	for(int i=1;i<=10;i++){
-	    		int a=Integer.parseInt(x[0]);
-	    		int b=Integer.parseInt(x[1]);
-	    		if(i%10!=a && i%10!=b){
+	    		String a=String.valueOf(i%10);
+	    		if(x.indexOf(a)>-1){
 					for(int j=0;j<=27;j++){
 						if(j%10==i%10){
 							rs.add(j);
@@ -2282,9 +2281,16 @@ public class Betting {
 	    }
 	public static List<Integer> otherList(List<Integer> paramList,int model,int index){
 	    	List<Integer> rs=new ArrayList<Integer>();
+	    	List<Integer> list1=new ArrayList<Integer>();
+	    	for(int i=0;i<=27;i++){
+				list1.add(i);
+			} 
 	    	if(model==1){
 	    		rs=ListValue(index);
-	    	}
+	    	}else if(model==2){
+				list1.remove(paramList);
+				rs=list1;
+			}
 			return rs;
 	    }
  	public static Map<String, Object> BigMode(){
@@ -2315,36 +2321,6 @@ public class Betting {
 		
 		Map<String, Object> map21=mode21();
 		Map<String, Object> map22=mode22();
-		Map<String, Object> map23=mode23();
-		Map<String, Object> map24=mode24();
-		Map<String, Object> map25=mode25();
-		Map<String, Object> map26=mode26();
-		Map<String, Object> map27=mode27();
-		Map<String, Object> map28=mode28();
-		Map<String, Object> map29=mode29();
-		Map<String, Object> map30=mode30();
-		
-		Map<String, Object> map31=mode31();
-		Map<String, Object> map32=mode32();
-		Map<String, Object> map33=mode33();
-		Map<String, Object> map34=mode34();
-		Map<String, Object> map35=mode35();
-		Map<String, Object> map36=mode36();
-		Map<String, Object> map37=mode37();
-		Map<String, Object> map38=mode38();
-		Map<String, Object> map39=mode39();
-		Map<String, Object> map40=mode40();
-		
-	/*	Map<String, Object> map41=mode41();
-		Map<String, Object> map42=mode42();
-		Map<String, Object> map43=mode43();
-		Map<String, Object> map44=mode44();
-		Map<String, Object> map45=mode45();
-		Map<String, Object> map46=mode46();
-		Map<String, Object> map47=mode47();
-		Map<String, Object> map48=mode48();
-		Map<String, Object> map49=mode49();
-		Map<String, Object> map50=mode50();*/
 		int all=0;
 		
 		/*for(int i=1;i<=10;i++){	
@@ -2436,27 +2412,7 @@ public class Betting {
 			a+=Integer.parseInt(map20.get("betting[f"+i+"]")==null?"0":map20.get("betting[f"+i+"]").toString());
 	
 			a+=Integer.parseInt(map21.get("betting[f"+i+"]")==null?"0":map21.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map22.get("betting[f"+i+"]")==null?"0":map22.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map23.get("betting[f"+i+"]")==null?"0":map23.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map24.get("betting[f"+i+"]")==null?"0":map24.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map25.get("betting[f"+i+"]")==null?"0":map25.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map26.get("betting[f"+i+"]")==null?"0":map26.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map27.get("betting[f"+i+"]")==null?"0":map27.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map28.get("betting[f"+i+"]")==null?"0":map28.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map29.get("betting[f"+i+"]")==null?"0":map29.get("betting[f"+i+"]").toString());
-			a+=Integer.parseInt(map30.get("betting[f"+i+"]")==null?"0":map30.get("betting[f"+i+"]").toString());
-	
-			
-				a+=Integer.parseInt(map31.get("betting[f"+i+"]")==null?"0":map31.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map32.get("betting[f"+i+"]")==null?"0":map32.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map33.get("betting[f"+i+"]")==null?"0":map33.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map34.get("betting[f"+i+"]")==null?"0":map34.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map35.get("betting[f"+i+"]")==null?"0":map35.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map36.get("betting[f"+i+"]")==null?"0":map36.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map37.get("betting[f"+i+"]")==null?"0":map37.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map38.get("betting[f"+i+"]")==null?"0":map38.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map39.get("betting[f"+i+"]")==null?"0":map39.get("betting[f"+i+"]").toString());
-				a+=Integer.parseInt(map40.get("betting[f"+i+"]")==null?"0":map40.get("betting[f"+i+"]").toString());		
+			a+=Integer.parseInt(map22.get("betting[f"+i+"]")==null?"0":map22.get("betting[f"+i+"]").toString());	
 				if(a>0){
 					tz.append(i+":"+a);
 					tz.append(",");
@@ -2549,26 +2505,7 @@ public class Betting {
 		log.info("==========================================================================");
 		log.info("本期投注21->"+GameData.getCana28Map().get("bettingNum21")+";index28->"+GameData.getCana28Map().get("index21")+";m->"+(GameData.getCana28Map().get("m21")==null?0:GameData.getCana28Map().get("m21")));
 		log.info("本期投注22->"+GameData.getCana28Map().get("bettingNum22")+";index28->"+GameData.getCana28Map().get("index22")+";m->"+(GameData.getCana28Map().get("m22")==null?0:GameData.getCana28Map().get("m22")));
-		log.info("本期投注23->"+GameData.getCana28Map().get("bettingNum23")+";index28->"+GameData.getCana28Map().get("index23")+";m->"+(GameData.getCana28Map().get("m23")==null?0:GameData.getCana28Map().get("m23")));
-		log.info("本期投注24->"+GameData.getCana28Map().get("bettingNum24")+";index28->"+GameData.getCana28Map().get("index24")+";m->"+(GameData.getCana28Map().get("m24")==null?0:GameData.getCana28Map().get("m24")));
-		log.info("本期投注25->"+GameData.getCana28Map().get("bettingNum25")+";index28->"+GameData.getCana28Map().get("index25")+";m->"+(GameData.getCana28Map().get("m25")==null?0:GameData.getCana28Map().get("m25")));
-		log.info("本期投注26->"+GameData.getCana28Map().get("bettingNum26")+";index28->"+GameData.getCana28Map().get("index26")+";m->"+(GameData.getCana28Map().get("m26")==null?0:GameData.getCana28Map().get("m26")));
-		log.info("本期投注27->"+GameData.getCana28Map().get("bettingNum27")+";index28->"+GameData.getCana28Map().get("index27")+";m->"+(GameData.getCana28Map().get("m27")==null?0:GameData.getCana28Map().get("m27")));
-		log.info("本期投注28->"+GameData.getCana28Map().get("bettingNum28")+";index28->"+GameData.getCana28Map().get("index28")+";m->"+(GameData.getCana28Map().get("m28")==null?0:GameData.getCana28Map().get("m28")));
-		log.info("本期投注29->"+GameData.getCana28Map().get("bettingNum29")+";index28->"+GameData.getCana28Map().get("index29")+";m->"+(GameData.getCana28Map().get("m29")==null?0:GameData.getCana28Map().get("m29")));
-		log.info("本期投注30->"+GameData.getCana28Map().get("bettingNum30")+";index28->"+GameData.getCana28Map().get("index30")+";m->"+(GameData.getCana28Map().get("m30")==null?0:GameData.getCana28Map().get("m30")));
-		log.info("==========================================================================");
-		log.info("本期投注31->"+GameData.getCana28Map().get("bettingNum31")+";index28->"+GameData.getCana28Map().get("index31")+";m->"+(GameData.getCana28Map().get("m31")==null?0:GameData.getCana28Map().get("m31")));
-		log.info("本期投注32->"+GameData.getCana28Map().get("bettingNum32")+";index28->"+GameData.getCana28Map().get("index32")+";m->"+(GameData.getCana28Map().get("m32")==null?0:GameData.getCana28Map().get("m32")));
-		log.info("本期投注33->"+GameData.getCana28Map().get("bettingNum33")+";index28->"+GameData.getCana28Map().get("index33")+";m->"+(GameData.getCana28Map().get("m33")==null?0:GameData.getCana28Map().get("m33")));
-		log.info("本期投注34->"+GameData.getCana28Map().get("bettingNum34")+";index28->"+GameData.getCana28Map().get("index34")+";m->"+(GameData.getCana28Map().get("m34")==null?0:GameData.getCana28Map().get("m34")));
-		log.info("本期投注35->"+GameData.getCana28Map().get("bettingNum35")+";index28->"+GameData.getCana28Map().get("index35")+";m->"+(GameData.getCana28Map().get("m35")==null?0:GameData.getCana28Map().get("m35")));
-		log.info("本期投注36->"+GameData.getCana28Map().get("bettingNum36")+";index28->"+GameData.getCana28Map().get("index36")+";m->"+(GameData.getCana28Map().get("m36")==null?0:GameData.getCana28Map().get("m36")));
-		log.info("本期投注37->"+GameData.getCana28Map().get("bettingNum37")+";index28->"+GameData.getCana28Map().get("index37")+";m->"+(GameData.getCana28Map().get("m37")==null?0:GameData.getCana28Map().get("m37")));
-		log.info("本期投注38->"+GameData.getCana28Map().get("bettingNum38")+";index28->"+GameData.getCana28Map().get("index38")+";m->"+(GameData.getCana28Map().get("m38")==null?0:GameData.getCana28Map().get("m38")));
-		log.info("本期投注39->"+GameData.getCana28Map().get("bettingNum39")+";index28->"+GameData.getCana28Map().get("index39")+";m->"+(GameData.getCana28Map().get("m39")==null?0:GameData.getCana28Map().get("m39")));
-		log.info("本期投注40->"+GameData.getCana28Map().get("bettingNum40")+";index28->"+GameData.getCana28Map().get("index40")+";m->"+(GameData.getCana28Map().get("m40")==null?0:GameData.getCana28Map().get("m40")));
-		log.info("==========================================================================");
+	   log.info("==========================================================================");
 		log.info("当前序号："+GameData.getCana28Map().get("now_num"));
 		log.info("投注序号："+GameData.getCana28Map().get("old_num"));
 		log.info("当前win："+GameData.getCana28Map().get("win_num"));
@@ -2592,39 +2529,74 @@ public class Betting {
 		}
 			
 		}
-	public static boolean notHave(String a,List<String> list){
+	public static List<String> five(){
+		List<Integer> list1=new ArrayList<Integer>();
+		List<Integer> list2=new ArrayList<Integer>();
+		List<Integer> list3=new ArrayList<Integer>();
+		List<Integer> list4=new ArrayList<Integer>();
+		List<Integer> list5=new ArrayList<Integer>();
+		List<String> list6=new ArrayList<String>();
+    	for(int i=1;i<=10;i++){
+			list1.add(i);
+			list2.add(i);
+			list3.add(i);
+			list4.add(i);
+			list5.add(i);
+		}
+    	
+    	for(int i=0;i<10;i++){
+    		for(int j=0;j<10;j++){
+    			for(int k=0;k<10;k++){
+    				for(int l=0;l<10;l++){
+    					for(int m=0;m<10;m++){
+    						List<Integer> q=new ArrayList<>();
+	        				q.add(i);q.add(j);q.add(k);q.add(l);q.add(m);
+	        				List yy=removeDuplicate(q);
+    						if(yy.size()==5){
+    	        				String a=i+":"+j+":"+k+":"+l+":"+m;
+    	        				if(!notHaveFive(q, list6)){
+    	        					list6.add(a);
+    	        				}
+    	        				
+    	        			}
+    					}
+    				}
+    			}
+    		}
+    	}
+    	
+    	return list6;  	    	    	    		    	
+
+	}
+	public static boolean notHaveFive(List<Integer> a,List<String> list){
 		if(list==null || list.size()==0){
 			return false;
 		}
+		List<Integer> xxx=new ArrayList<>();
 		for(String x:list){
-			if(a.equals(x)){
+			String[] as=x.split("\\:");
+			List<Integer> b=new ArrayList<>();
+			for(int i=0;i<as.length;i++){
+				b.add(Integer.parseInt(as[i]));
+			}
+			b.retainAll(a);
+			if(b.size()>=4){
 				return true;
 			}
 		}
 		return false;
 	}
+	public static List removeDuplicate(List list){  
+        List listTemp = new ArrayList();  
+        for(int i=0;i<list.size();i++){  
+            if(!listTemp.contains(list.get(i))){  
+                listTemp.add(list.get(i));  
+            }  
+        }  
+        return listTemp;  
+    }
 	public static List<String>  getTouList(){
-		List<Integer> list1=new ArrayList<Integer>();
-		List<Integer> list2=new ArrayList<Integer>();
-		List<String> list3=new ArrayList<String>();
-    	for(int i=1;i<=10;i++){
-			list1.add(i);
-			list2.add(i);
-		}
-    	
-    	for(int i=0;i<10;i++){
-    		for(int j=0;j<10;j++){
-    			if(i!=j){
-    				String a=i+":"+j;
-    				String b=j+":"+i;
-    				if(!notHave(a, list3) && !notHave(b,list3)){
-    					list3.add(a);
-    				}
-    				
-    			}
-    		}
-    	}
-    	
+		List<String> list3=five();
     	Collections.shuffle(list3);
     	Collections.shuffle(list3);
     	Collections.shuffle(list3);
