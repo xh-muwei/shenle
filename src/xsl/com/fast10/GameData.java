@@ -320,7 +320,7 @@ public class GameData {
 			
 			str=replace(str);
 			str=str.substring(str.indexOf("UseMoney"),str.indexOf("银行"));
-			str=str.substring(str.indexOf("<span"),str.indexOf("<img"));
+			//str=str.substring(str.indexOf("<span"),str.indexOf("<img"));
 			str=str.substring(str.indexOf("MoneyClass"),str.indexOf("/"));
 			str=str.substring(str.indexOf(">")+1,str.indexOf("<"));
 			FastTenMap.put("nowscore",str);

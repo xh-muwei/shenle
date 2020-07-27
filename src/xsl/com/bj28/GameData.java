@@ -310,8 +310,10 @@ public class GameData {
 			}
 			
 			str=replace(str);
+			//log.info("score:"+str);
 			str=str.substring(str.indexOf("UseMoney"),str.indexOf("银行"));
-			str=str.substring(str.indexOf("<span"),str.indexOf("<img"));
+			
+			//str=str.substring(str.indexOf("<span"),str.indexOf("<img"));
 			str=str.substring(str.indexOf("MoneyClass"),str.indexOf("/"));
 			str=str.substring(str.indexOf(">")+1,str.indexOf("<"));
 			Cana28Map.put("nowscore",str);
