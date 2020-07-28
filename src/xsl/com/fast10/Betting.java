@@ -2296,7 +2296,7 @@ public class Betting {
 			if(mode==1){
 				rs=ListValue(index);
 			}else if(mode==2){
-				list1.remove(paramList);
+				list1.removeAll(paramList);
 				rs=list1;
 			}
 			return rs;

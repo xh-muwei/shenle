@@ -2266,6 +2266,12 @@ public class Betting {
 
 			return rs;
 	    }
+	/**
+	 * 判断是否存在值
+	 * @param s
+	 * @param r
+	 * @return
+	 */
     public static boolean ishas(int s,List<Integer> r){
 	    	
 	    	if(r.size()==0){
@@ -2279,7 +2285,14 @@ public class Betting {
 	    	return false;
 	    	
 	    }
-	public static List<Integer> otherList(List<Integer> paramList,int model,int index){
+	/**
+	 * 另外一种实现方式
+	 * @param paramList
+	 * @param model
+	 * @param index
+	 * @return
+	 */
+    public static List<Integer> otherList(List<Integer> paramList,int model,int index){
 	    	List<Integer> rs=new ArrayList<Integer>();
 	    	List<Integer> list1=new ArrayList<Integer>();
 	    	for(int i=0;i<=27;i++){
@@ -2288,7 +2301,7 @@ public class Betting {
 	    	if(model==1){
 	    		rs=ListValue(index);
 	    	}else if(model==2){
-				list1.remove(paramList);
+				list1.removeAll(paramList);
 				rs=list1;
 			}
 			return rs;
